@@ -104,7 +104,8 @@ h6,
     top: 0;
     left: -15px;
     transform: skewX(-30deg);
-    background-color: var(--primary);
+    background-color: var(--dark);
+    
 }
 
 
@@ -112,6 +113,7 @@ h6,
 .navbar.sticky-top {
     top: -100px;
     transition: .5s;
+    
 }
 
 .navbar .navbar-brand {
@@ -121,6 +123,7 @@ h6,
     display: flex;
     align-items: center;
     background: var(--primary);
+    
 }
 
 .navbar .navbar-brand::after {
@@ -132,6 +135,7 @@ h6,
     right: -25px;
     transform: skewX(-30deg);
     background-color: var(--primary);
+    
 }
 
 .navbar .navbar-nav .nav-link {
@@ -141,6 +145,7 @@ h6,
     font-size: 18px;
     font-weight: 500;
     outline: none;
+    
 }
 
 .navbar .navbar-nav .nav-link:hover,
@@ -196,7 +201,7 @@ h6,
     bottom: 0;
     display: flex;
     align-items: center;
-    background: linear-gradient(to right, rgba(2, 36, 91, 1) 0%, rgba(2, 36, 91, 0) 100%);
+    background: linear-gradient(to right, rgb(2, 2, 2) 0%, rgba(35, 36, 37, 0.158) 100%);
     z-index: 1;
 }
 
