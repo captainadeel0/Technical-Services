@@ -104,7 +104,7 @@ h6,
     top: 0;
     left: -15px;
     transform: skewX(-30deg);
-    background-color: var(--dark);
+    background-color: rgb(255, 102, 0);
     
 }
 
@@ -234,7 +234,7 @@ h6,
 }
 
 .page-header {
-    background: linear-gradient(to right, rgba(2, 36, 91, 1) 0%, rgba(2, 36, 91, 0) 100%), url(../img/carousel-2.jpg) center center no-repeat;
+    background: linear-gradient(to right, rgb(8, 8, 8) 0%, rgba(2, 36, 91, 0) 100%), url(../img/slider-main/greyson-joralemon-A1g0oeX29ec-unsplash.jpg) center center no-repeat;
     background-size: cover;
 }
 
@@ -253,7 +253,7 @@ h6,
 .facts {
     position: relative;
     margin: 6rem 0;
-    background: var(--dark);
+    background: rgba(24, 22, 22, 0.925);
 }
 
 .facts .border {
@@ -427,7 +427,7 @@ h6,
     display: flex;
     align-items: center;
     text-align: center;
-    background: rgba(2, 36, 91, .7);
+    background: rgba(3, 3, 3, 0.582);
     transition: .5s;
 }
 
@@ -477,7 +477,7 @@ h6,
 /*** Project ***/
 .project-carousel {
     position: relative;
-    background: var(--dark);
+    background: rgba(24, 22, 22, 0.925);
 }
 
 .project-item {
@@ -505,7 +505,7 @@ h6,
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: var(--dark);
+    background: rgba(24, 22, 22, 0.925);
     transition: .5s;
 }
 
@@ -522,7 +522,7 @@ h6,
     top: -15px;
     left: 0;
     transform: skewY(-5deg);
-    background: var(--dark);
+    background: rgba(24, 22, 22, 0.925);
     transition: .5s;
 }
 
@@ -704,3 +704,40 @@ h6,
     color: #B0B9AE;
     border-top: 1px solid rgba(255, 255, 255, .1);
 }
+/*--------------------------------------------------------------
+# Credits
+--------------------------------------------------------------*/
+.credits {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 15px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 15px;
+    color: #020850;
+    z-index: 999999;
+  }
+  
+  @media (max-width: 992px) {
+    .credits {
+      text-align: center;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.8);
+    }
+  }
+  
+  .credits a {
+    color: #ec9018;
+    transition: 0.3s;
+  }
+  
+  .credits a:hover {
+    color: #fff;
+  }
+  span1{
+    color: #ec9018;
+    font-size: 40px;
+  }
+  
