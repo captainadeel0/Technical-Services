@@ -128,23 +128,110 @@ if (mysqli_num_rows($result) > 0) {
 
 
 ?>
-                            
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <!-- <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> -->
-                                <div class="w-100 ms-3">
-            <div class=" w-100 justify-content-between">
-                                        <h6 class="mb-0 text-light">Name: <?php echo $row['name'] ?></h6>
-                                        <span>Email: <?php echo $row['email'] ?></span>
-                                        <span>Subject: <?php echo $row['subject'] ?></span> 
-                                        
-                                        
-                                    </div>
-                        
-                                    <span><?php echo $row['message'] ?></span>
-                                </div>
-                            </div>
-                           
-                            
+<style>
+  .d-flex {
+    display: flex;
+  }
+
+  .align-items-start {
+    align-items: flex-start;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid #ddd; /* Light border color */
+  }
+
+  .py-3 {
+    padding: 15px 0; /* Padding for vertical spacing */
+  }
+
+  .w-100 {
+    width: 100%;
+  }
+
+  .ms-3 {
+    margin-left: 1rem; /* Space between image (if present) and text */
+  }
+
+  .d-flex .justify-content-between {
+    justify-content: space-between;
+  }
+
+  .align-items-center {
+    align-items: center;
+  }
+
+  .mb-2 {
+    margin-bottom: 0.5rem; /* Space below the header */
+  }
+
+  .name-email {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .name,
+  .email {
+    justify-content: space-between;
+    margin-right: 15px; /* Space between name and email */
+    color: #f8f9fa; /* Light color for text */
+  }
+
+  .subject {
+    color: #e9ecef; /* Slightly different shade for contrast */
+  }
+
+  .message-container {
+    max-height: 60px; /* Collapsed height */
+    overflow: hidden;
+    position: relative;
+  }
+
+  .message-text {
+    color: #adb5bd; /* Gray color for message text */
+    white-space: pre-wrap; /* Preserve whitespace formatting */
+  }
+
+  .read-more-btn {
+    display: block;
+    margin-top: 10px;
+    color: #007bff; /* Button color */
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .read-more-btn:hover {
+    color: #0056b3; /* Darker color on hover */
+  }
+
+  .message-container.expanded {
+    max-height: 1000px; /* Large height for expanded view */
+  }
+</style>
+
+
+                            <div class="d-flex align-items-start border-bottom py-3">
+  <!-- <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> -->
+  <div class="w-100 ms-3">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h6 class="mb-0 text-light name-email">
+        <span class="name">Name: <?php echo htmlspecialchars($row['name']); ?></span>
+        <span class="email">Email: <?php echo htmlspecialchars($row['email']); ?></span>
+      </h6>
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi praesentium commodi aut quas saepe soluta, earum, nihil molestias error reiciendis totam provident modi perspiciatis ipsum maxime est odio iusto quidem consectetur nostrum maiores quaerat dolores! Praesentium eius eveniet, aspernatur, ratione voluptates provident commodi unde aperiam doloremque est rem, eos quod quae odio labore quidem debitis possimus a cumque exercitationem? Corrupti explicabo nulla a omnis laboriosam tempore exercitationem ratione vitae, alias illo veniam, iure optio neque accusamus architecto dicta. Fuga, quae natus architecto ex rerum iure. Excepturi voluptates sed inventore ratione, consequuntur rerum vero sunt voluptate non! Molestias harum nam nostrum.</span>
+      
+    </div>
+    <span class="subject">Subject: <?php echo htmlspecialchars($row['subject']); ?></span>
+    <div class="message-container">
+      <span class="message-text"><?php echo htmlspecialchars($row['message']); ?></span>
+      <span class="read-more-btn">Read More</span>
+    </div>
+  </div>
+</div>
+
+
+
+
                             <?php
                             }
                         }
@@ -193,6 +280,23 @@ if (mysqli_num_rows($result) > 0) {
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const readMoreBtn = document.querySelector('.read-more-btn');
+    const messageContainer = document.querySelector('.message-container');
+
+    readMoreBtn.addEventListener('click', function() {
+      if (messageContainer.classList.contains('expanded')) {
+        messageContainer.classList.remove('expanded');
+        readMoreBtn.textContent = 'Read More';
+      } else {
+        messageContainer.classList.add('expanded');
+        readMoreBtn.textContent = 'Read Less';
+      }
+    });
+  });
+</script>
+
 </body>
 
 </html>
