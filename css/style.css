@@ -660,6 +660,7 @@ h6,
 
 .testimonial-carousel .owl-item .testimonial-text {
     margin-bottom: 30px;
+    
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
     transform: scale(.8);
     transition: .5s;

@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,30 +49,34 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="index.html" class="navbar-brand ">
-                   <a href="./index.html"><img src="./img/logo.png" width="200px" alt=""></a>
+                   <a href="./index.php"><img src="./img/logo.png" width="200px" alt=""></a>
                 </a>
                 <div class="d-flex align-items-center ms-4 mt-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="img/CEO-ILYAS.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="./img/admin.png" alt="" style="width: 40px; height: 40px;">
+                        
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Ilyas Shakir</h6>
+                        <h6 class="mb-0">
+                        
+                            
+                        </h6>
                         <span>Admin</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 mt-3"></i>Dashboard</a>
+                    <a href="index.php" class="nav-item nav-link  mt-3"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="./message.html" class="nav-link active" ><i class="fa fa-laptop me-2"></i>Messages</a>
+                        <a href="./message.php" class="nav-link active" ><i class="fa fa-laptop me-2" ></i>Messages</a>
                         
                     </div>
-                    <a href="./admin.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Admins</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Users</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quotos</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Services</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Projects</a>
-                    <a href="./testimonial.html" class="nav-item nav-link "><i class="fa fa-chart-bar me-2"></i>Testimonials</a>
+                    <a href="./admin.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Admins</a>
+                    <a href="./user.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Users</a>
+                    <a href="./quoto.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quotos</a>
+                    <a href="./service.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Services</a>
+                    <a href="./project.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Projects</a>
+                    <a href="./testimonial.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Testimonials</a>
                 </div>
             </nav>
         </div>
@@ -93,13 +100,12 @@
                     <div class="nav-item dropdown">
                           <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/CEO-ILYAS.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Ilyas Shakir</span>
+                            <span class="d-none d-lg-inline-flex">Options</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="./signup.html" class="dropdown-item">Log Out</a>
+                            <a href="./logout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -128,110 +134,25 @@ if (mysqli_num_rows($result) > 0) {
 
 
 ?>
-<style>
-  .d-flex {
-    display: flex;
-  }
-
-  .align-items-start {
-    align-items: flex-start;
-  }
-
-  .border-bottom {
-    border-bottom: 1px solid #ddd; /* Light border color */
-  }
-
-  .py-3 {
-    padding: 15px 0; /* Padding for vertical spacing */
-  }
-
-  .w-100 {
-    width: 100%;
-  }
-
-  .ms-3 {
-    margin-left: 1rem; /* Space between image (if present) and text */
-  }
-
-  .d-flex .justify-content-between {
-    justify-content: space-between;
-  }
-
-  .align-items-center {
-    align-items: center;
-  }
-
-  .mb-2 {
-    margin-bottom: 0.5rem; /* Space below the header */
-  }
-
-  .name-email {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .name,
-  .email {
-    justify-content: space-between;
-    margin-right: 15px; /* Space between name and email */
-    color: #f8f9fa; /* Light color for text */
-  }
-
-  .subject {
-    color: #e9ecef; /* Slightly different shade for contrast */
-  }
-
-  .message-container {
-    max-height: 60px; /* Collapsed height */
-    overflow: hidden;
-    position: relative;
-  }
-
-  .message-text {
-    color: #adb5bd; /* Gray color for message text */
-    white-space: pre-wrap; /* Preserve whitespace formatting */
-  }
-
-  .read-more-btn {
-    display: block;
-    margin-top: 10px;
-    color: #007bff; /* Button color */
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
-  .read-more-btn:hover {
-    color: #0056b3; /* Darker color on hover */
-  }
-
-  .message-container.expanded {
-    max-height: 1000px; /* Large height for expanded view */
-  }
-</style>
-
-
-                            <div class="d-flex align-items-start border-bottom py-3">
-  <!-- <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> -->
-  <div class="w-100 ms-3">
-    <div class="d-flex justify-content-between align-items-center mb-2">
-      <h6 class="mb-0 text-light name-email">
-        <span class="name">Name: <?php echo htmlspecialchars($row['name']); ?></span>
-        <span class="email">Email: <?php echo htmlspecialchars($row['email']); ?></span>
-      </h6>
-      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi praesentium commodi aut quas saepe soluta, earum, nihil molestias error reiciendis totam provident modi perspiciatis ipsum maxime est odio iusto quidem consectetur nostrum maiores quaerat dolores! Praesentium eius eveniet, aspernatur, ratione voluptates provident commodi unde aperiam doloremque est rem, eos quod quae odio labore quidem debitis possimus a cumque exercitationem? Corrupti explicabo nulla a omnis laboriosam tempore exercitationem ratione vitae, alias illo veniam, iure optio neque accusamus architecto dicta. Fuga, quae natus architecto ex rerum iure. Excepturi voluptates sed inventore ratione, consequuntur rerum vero sunt voluptate non! Molestias harum nam nostrum.</span>
-      
-    </div>
-    <span class="subject">Subject: <?php echo htmlspecialchars($row['subject']); ?></span>
-    <div class="message-container">
-      <span class="message-text"><?php echo htmlspecialchars($row['message']); ?></span>
-      <span class="read-more-btn">Read More</span>
-    </div>
-  </div>
-</div>
-
-
-
-
+                            
+                            <div class="d-flex align-items-center border-bottom py-3">
+                                <!-- <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> -->
+                                <div class="w-100 d-flex ms-3">
+                                      <div class=" w-100 justify-content-between">
+                                        <h6>Name: <span class="text-light"><?php echo $row['name'] ?></span></h6>
+                                        <h6>Email: <span class="text-light"><?php echo $row['email'] ?></span></h6>
+                                      <h6><span>Subject: <span class="text-light"><?php echo $row['subject'] ?></span> </h6>
+                                        
+                                        
+                                       </div>
+                                       <div class=" w-100 justify-content-between">
+                                        <h6>Message</h6>
+                                    <span><?php echo $row['message'] ?></span>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            
                             <?php
                             }
                         }
@@ -280,23 +201,6 @@ if (mysqli_num_rows($result) > 0) {
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const readMoreBtn = document.querySelector('.read-more-btn');
-    const messageContainer = document.querySelector('.message-container');
-
-    readMoreBtn.addEventListener('click', function() {
-      if (messageContainer.classList.contains('expanded')) {
-        messageContainer.classList.remove('expanded');
-        readMoreBtn.textContent = 'Read More';
-      } else {
-        messageContainer.classList.add('expanded');
-        readMoreBtn.textContent = 'Read Less';
-      }
-    });
-  });
-</script>
-
 </body>
 
 </html>
