@@ -113,9 +113,10 @@
 
 
 <!-- ======= Testimonials Section ========== -->
-<h3 id="testimonials" class="title text-center">Testimonials</h3>
+<h3 id="testimonials" class="title text-center mt-5"  style="color:  rgb(245, 120, 3)" >Testimonials</h3>
+<h1 id="testimonials" class="title text-center mb-5">See What Our Client Says</h1>
     <div class="owl-carousel testimonial-carousel">
-        <?php
+         <?php
         // Include the database connection file
         require_once "./db-con.php";
 
@@ -177,14 +178,13 @@ $(document).ready(function() {
 });
 </script>
 
-
-    <!-- Footer Start -->
-    <div class="container-fluid  footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: rgba(24, 22, 22, 0.925)">
+ <!-- Footer Start -->
+ <div class="container-fluid  footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: rgba(24, 22, 22, 0.925)">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Our Office</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Dubai</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i> ffice: 102, Al Dana Building &nbsp; &nbsp; &nbsp;&nbsp; Frij Al Murar, Dubai</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+971 56 151 8964</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>ilyasanjum6674@gmail.com</p>
                     <div class="d-flex pt-3">
@@ -200,9 +200,9 @@ $(document).ready(function() {
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="about.php">About Us</a>
+                    <a class="btn btn-link" href="contact.php">Contact Us</a>
+                    <a class="btn btn-link" href="service.php">Our Services</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="">Support</a>
                 </div>

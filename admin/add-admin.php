@@ -34,6 +34,25 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
+
+
+<style>
+    /* Default style hides the image */
+.mobile-only {
+    display: none; /* Hide the image by default */
+}
+
+/* Media query to show the image only on mobile devices */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block; /* Show the image on screens 768px wide or less */
+        max-width: 100%; /* Ensure the image scales correctly */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+</style>
+
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
@@ -88,7 +107,6 @@
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
@@ -96,6 +114,12 @@
                 <form class="d-none d-md-flex ms-4">
                     <input class="form-control bg-dark border-0" type="search" placeholder="Search">
                 </form>
+
+ 
+                <a href="./index.php">
+                  <img src="./img/logo.png" alt="Logo" class="responsive-img mobile-only">
+                   </a>
+
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                           <div class="nav-item dropdown">

@@ -34,6 +34,24 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
+
+<style>
+    /* Default style hides the image */
+.mobile-only {
+    display: none; /* Hide the image by default */
+}
+
+/* Media query to show the image only on mobile devices */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block; /* Show the image on screens 768px wide or less */
+        max-width: 100%; /* Ensure the image scales correctly */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+</style>
+
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
@@ -72,7 +90,6 @@
                         
                     </div>
                     <a href="./admin.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Admins</a>
-                    <a href="./user.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Users</a>
                     <a href="./quoto.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quotos</a>
                     <a href="./service.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Services</a>
                     <a href="./project.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Projects</a>
@@ -86,31 +103,48 @@
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
-            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
-                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
-                </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-                </form>
-                <div class="navbar-nav align-items-center ms-auto">
-                    <div class="nav-item dropdown">
-                          <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <span class="d-none d-lg-inline-flex">Options</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="./logout.php" class="dropdown-item">Log Out</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <!-- Navbar End -->
+<nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+    <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+    </a>
+    <a href="#" class="sidebar-toggler flex-shrink-0">
+        <i class="fa fa-bars"></i>
+    </a>
+    <form class="d-none d-md-flex ms-4">
+        <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+    </form>
+
+
+    <a href="./index.php">
+                  <img src="./img/logo.png" alt="Logo" class="responsive-img mobile-only">
+                   </a>
+                
+
+    <div class="navbar-nav align-items-center ms-auto">
+        <!-- Notification Icon Start -->
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <i class="fa fa-bell"></i>
+                <span id="notification-badge" class="badge bg-danger">0</span>
+                <span class="d-none d-lg-inline-flex">Notifications</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0" id="notification-menu">
+                <a href="#" class="dropdown-item">No new messages</a>
+            </div>
+        </div>
+        <!-- Notification Icon End -->
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <span class="d-none d-lg-inline-flex">Options</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                <a href="#" class="dropdown-item">My Profile</a>
+                <a href="#" class="dropdown-item">Settings</a>
+                <a href="./logout.php" class="dropdown-item">Log Out</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->
 
             
             <!-- Widget Start -->
@@ -187,6 +221,42 @@ if (mysqli_num_rows($result) > 0) {
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+
+    <script>
+// Function to check for new messages
+function checkForNewMessages() {
+    fetch('check_new_messages.php') // Adjust the URL to your backend script
+        .then(response => response.json())
+        .then(data => {
+            if (data.newMessages > 0) {
+                document.getElementById('notification-badge').textContent = data.newMessages;
+                document.getElementById('notification-badge').style.display = 'inline';
+                
+                let notificationMenu = document.getElementById('notification-menu');
+                notificationMenu.innerHTML = ''; // Clear previous notifications
+                data.messages.forEach(message => {
+                    let item = document.createElement('a');
+                    item.href = `message_detail.php?id=${message.id}`;
+                    item.className = 'dropdown-item';
+                    item.textContent = `${message.name}: ${message.subject}`;
+                    notificationMenu.appendChild(item);
+                });
+            } else {
+                document.getElementById('notification-badge').style.display = 'none';
+                document.getElementById('notification-menu').innerHTML = '<a href="#" class="dropdown-item">No new messages</a>';
+            }
+        })
+        .catch(error => console.error('Error fetching new messages:', error));
+}
+
+// Check for new messages every 30 seconds
+setInterval(checkForNewMessages, 30000);
+
+// Initial check when the page loads
+checkForNewMessages();
+</script>
+
+
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -197,6 +197,7 @@
     <!-- Facts End -->
 
 
+
     <!-- Team Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -207,14 +208,14 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
-                        <img class="img-fluid" src="img/team/ceo.jpg" alt="">
+                        <img class="img-fluid" src="./img/team/i.png"  alt="">
                         <div class="d-flex">
                             <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
                                 <i class="fa fa-2x fa-share text-white"></i>
                             </div>
                             <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
                                 style="height: 90px;">
-                                <h5>Rob Miller</h5>
+                                <h5>Ilyas Anjum</h5>
                                 <span class="text-primary">CEO & Founder</span>
                                 <div class="team-social">
                                     <a class="btn btn-square btn-dark rounded-circle mx-1" style="background-color: rgba(3, 3, 3, 0.692)" href=""><i
@@ -230,14 +231,14 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item">
-                        <img class="img-fluid" src="img/team-2.jpg" alt="">
+                        <img class="img-fluid" src="img/team/a.png" alt="">
                         <div class="d-flex">
                             <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
                                 <i class="fa fa-2x fa-share text-white"></i>
                             </div>
                             <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
                                 style="height: 90px;">
-                                <h5>Adam Crew</h5>
+                                <h5>Ahsan Ibrahim</h5>
                                 <span class="text-primary">Project Manager</span>
                                 <div class="team-social">
                                     <a class="btn btn-square btn-dark rounded-circle mx-1" style="background-color: rgba(3, 3, 3, 0.692)" href=""><i
@@ -253,14 +254,14 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item">
-                        <img class="img-fluid" src="img/team-3.jpg" alt="">
+                        <img class="img-fluid" src="img/team/adam.jpg" alt="">
                         <div class="d-flex">
                             <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
                                 <i class="fa fa-2x fa-share text-white"></i>
                             </div>
                             <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
                                 style="height: 90px;">
-                                <h5>Peter Farel</h5>
+                                <h5>Adam Smith</h5>
                                 <span class="text-primary">Engineer</span>
                                 <div class="team-social">
                                     <a class="btn btn-square btn-dark rounded-circle mx-1" style="background-color: rgba(3, 3, 3, 0.692)" href=""><i
@@ -300,15 +301,13 @@
         </div>
     </div>
     <!-- Video Modal End -->
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid  footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: rgba(24, 22, 22, 0.925)">
+ <!-- Footer Start -->
+ <div class="container-fluid  footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: rgba(24, 22, 22, 0.925)">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Our Office</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Dubai</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i> ffice: 102, Al Dana Building &nbsp; &nbsp; &nbsp;&nbsp; Frij Al Murar, Dubai</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+971 56 151 8964</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>ilyasanjum6674@gmail.com</p>
                     <div class="d-flex pt-3">
@@ -324,9 +323,9 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="about.php">About Us</a>
+                    <a class="btn btn-link" href="contact.php">Contact Us</a>
+                    <a class="btn btn-link" href="service.php">Our Services</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="">Support</a>
                 </div>
@@ -353,7 +352,6 @@
         </div>
     </div>
     <!-- Footer End -->
-
 
     <!-- Copyright Start -->
     <div class="container-fluid copyright  py-4" style="background-color: rgba(24, 22, 22, 0.925)" >

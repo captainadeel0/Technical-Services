@@ -33,6 +33,24 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
+
+<style>
+    /* Default style hides the image */
+.mobile-only {
+    display: none; /* Hide the image by default */
+}
+
+/* Media query to show the image only on mobile devices */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block; /* Show the image on screens 768px wide or less */
+        max-width: 100%; /* Ensure the image scales correctly */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+</style>
+
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
@@ -71,7 +89,6 @@
                         
                     </div>
                     <a href="./admin.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Admins</a>
-                    <a href="user.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Users</a>
                     <a href="quoto.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quotos</a>
                     <a href="service.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Services</a>
                     <a href="project.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Projects</a>
@@ -87,7 +104,6 @@
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
@@ -95,6 +111,13 @@
                 <form class="d-none d-md-flex ms-4">
                     <input class="form-control bg-dark border-0" type="search" placeholder="Search">
                 </form>
+
+
+                <a href="./index.php">
+                  <img src="./img/logo.png" alt="Logo" class="responsive-img mobile-only">
+                   </a>
+                
+
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                           <div class="nav-item dropdown">
@@ -161,14 +184,11 @@ if (mysqli_num_rows($result) > 0) {
                             <td><?php echo $row['profession'] ?></td>
 
                             <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-info text-white dropdown-toggle" data-toggle="dropdown">Actions</button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="edit-product.php?id=<?= $row['id'] ?>">Edit</a>
-                                        <a class="dropdown-item" href="delete-product.php?id=<?= $row['id'] ?>">Delete</a>
-                                    </div>
-                                </div>
-                            </td>
+                        
+                            <a href="delete-testimonial.php?id=<?php echo $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this testimonial?');">Delete</a>
+                           
+                            
+                        </td>
                         </tr>
 
                         <?php

@@ -1,3 +1,21 @@
+<?php
+session_start();
+
+// Set the maximum idle time (in seconds)
+$max_idle_time = 1800; // 30 minutes
+
+// Check if the session variable for the last activity time is set
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $max_idle_time) {
+    // If session has been idle for too long, destroy it
+    session_unset();
+    session_destroy();
+    header('Location: signin.php');
+    exit();
+}
+
+// Update last activity time
+$_SESSION['LAST_ACTIVITY'] = time();
+?>
 
 
 
@@ -34,6 +52,23 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+
+<style>
+    /* Default style hides the image */
+.mobile-only {
+    display: none; /* Hide the image by default */
+}
+
+/* Media query to show the image only on mobile devices */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block; /* Show the image on screens 768px wide or less */
+        max-width: 100%; /* Ensure the image scales correctly */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+</style>
 
 <body>
     <div class="container-fluid position-relative d-flex p-0">
@@ -73,7 +108,6 @@
                         
                     </div>
                     <a href="./admin.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Admins</a>
-                    <a href="./user.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Users</a>
                     <a href="./quoto.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quotos</a>
                     <a href="./service.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Services</a>
                     <a href="./project.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Projects</a>
@@ -89,15 +123,26 @@
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+                    
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form class="d-none d-md-flex ms-4">
+                
+                
+                <a href="./index.php">
+                  <img src="./img/logo.png" alt="Logo" class="responsive-img mobile-only">
+                   </a>
+                
+                
+                   <form class="d-none d-md-flex ms-4">
                     <input class="form-control bg-dark border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
+                <a href="" class="nav-item nav-link"><i class="fa fa-envelope fa-xl" style="color: rgb(51, 57, 66);">
+                    
+                </i></a>
+                
                     <div class="nav-item dropdown">
                           <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -121,8 +166,28 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-line fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Total Admin</p>
+                                <h6 class="mb-0">
+                                <?php
+                                require_once("./db-con.php");
+                                $select = "SELECT * FROM admin ";
+                                
+                                $result = mysqli_query($con, $select);
+                                
+                                if($admin_total = mysqli_num_rows($result))
+                                
+                                {
+                                
+                                echo ' <h6 class="mb-0">'.$admin_total.'</h6>';
+                                }
+                                else
+                                 {
+                                    echo ' <h6 class="mb-0">No data found</h6>';
+                                 }
+                              
+                                  ?>
+                            
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -130,8 +195,27 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-bar fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Total Services</p>
+                                <h6 class="mb-0">  
+                                    <?php
+                                require_once("./db-con.php");
+                                $select = "SELECT * FROM services ";
+                                
+                                $result = mysqli_query($con, $select);
+                                
+                                if($services_total = mysqli_num_rows($result))
+                                
+                                {
+                                
+                                echo ' <h6 class="mb-0">'.$services_total.'</h6>';
+                                }
+                                else
+                                 {
+                                    echo ' <h6 class="mb-0">No data found</h6>';
+                                 }
+                              
+                                  ?>
+                            </h6>
                             </div>
                         </div>
                     </div>
@@ -139,8 +223,28 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Testimonial </p>
+                                <h6 class="mb-0">
+                                <?php
+                                require_once("./db-con.php");
+                                $select = "SELECT * FROM testimonial ";
+                                
+                                $result = mysqli_query($con, $select);
+                                
+                                if($testimonial_total = mysqli_num_rows($result))
+                                
+                                {
+                                
+                                echo ' <h6 class="mb-0">'.$testimonial_total.'</h6>';
+                                }
+                                else
+                                 {
+                                    echo ' <h6 class="mb-0">No data found</h6>';
+                                 }
+                              
+                                  ?>
+                            
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -148,8 +252,27 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-pie fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">All Messages</p>
+                                <h6 class="mb-0">
+                                <?php
+                                require_once("./db-con.php");
+                                $select = "SELECT * FROM contact_us ";
+                                
+                                $result = mysqli_query($con, $select);
+                                
+                                if($message_total = mysqli_num_rows($result))
+                                
+                                {
+                                
+                                echo ' <h6 class="mb-0">'.$message_total.'</h6>';
+                                }
+                                else
+                                 {
+                                    echo ' <h6 class="mb-0">No data found</h6>';
+                                 }
+                              
+                                  ?>
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -193,6 +316,7 @@
                                         <button class="btn btn-sm"><i class="fa fa-times"></i></button>
                                     </div>
                                 </div>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, repellendus.
                             </div>
                             <div class="d-flex align-items-center border-bottom py-2">
                                 <input class="form-check-input m-0" type="checkbox">
@@ -271,6 +395,7 @@
         <!-- Back to Top -->
         <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> -->
     </div>
+    
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

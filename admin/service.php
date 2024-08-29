@@ -34,6 +34,24 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
+
+<style>
+    /* Default style hides the image */
+.mobile-only {
+    display: none; /* Hide the image by default */
+}
+
+/* Media query to show the image only on mobile devices */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block; /* Show the image on screens 768px wide or less */
+        max-width: 100%; /* Ensure the image scales correctly */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+</style>
+
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
@@ -90,7 +108,6 @@
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
@@ -98,6 +115,12 @@
                 <form class="d-none d-md-flex ms-4">
                     <input class="form-control bg-dark border-0" type="search" placeholder="Search">
                 </form>
+
+
+                <a href="./index.php">
+                  <img src="./img/logo.png" alt="Logo" class="responsive-img mobile-only">
+                   </a>
+                
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                           <div class="nav-item dropdown">
@@ -161,14 +184,10 @@ if (mysqli_num_rows($result) > 0) {
                             <td><?php echo $row['description'] ?></td>
                            
                             <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-info text-white dropdown-toggle" data-toggle="dropdown">Actions</button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="edit-product.php?id=<?= $row['id'] ?>">Edit</a>
-                                        <a class="dropdown-item" href="delete-product.php?id=<?= $row['id'] ?>">Delete</a>
-                                    </div>
-                                </div>
+                             
+                            <a href="delete-service.php?id=<?php echo $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this service?');">Delete</a>
                             </td>
+                           </td>
                         </tr>
 
                         <?php
@@ -194,6 +213,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
     <!-- JavaScript Libraries -->
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/chart/chart.min.js"></script>

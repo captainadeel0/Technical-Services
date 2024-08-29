@@ -36,6 +36,13 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+<style>
+    
+  .carousel-image {
+    height: 380px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+</style>
 
 <body>
     <!-- Spinner Start -->
@@ -424,53 +431,53 @@
     </div>
     <!-- Service End -->
 
-
-    <!-- Project Start -->
-    <div class="container-fluid pt-5 my-5 px-0" style="background-color: rgba(24, 22, 22, 0.925);">
-        <div class="text-center mx-auto mt-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
-            <p class="fw-medium text-uppercase text-primary mb-2">Our Projects</p>
-            <h1 class="display-5 text-white mb-5">See What We Have Completed Recently</h1>
-        </div>
-        <div class="owl-carousel project-carousel wow fadeIn" data-wow-delay="0.1s">
-            <a class="project-item" href="">
-                <img class="img-fluid" src="img/services/engraving1.jpg" alt="">
-                <div class="project-title">
-                    <h5 class="text-primary mb-0">Plaster Works</h5>
-                </div>
-            </a>
-            <a class="project-item" href="">
-                <img class="img-fluid" src="img/services/ac2.jpg" alt="">
-                <div class="project-title">
-                    <h5 class="text-primary mb-0">AC Installation & Maintenance</h5>
-                </div>
-            </a>
-            <a class="project-item" href="">
-                <img class="img-fluid" src="img/services/engraving.jpg" alt="">
-                <div class="project-title">
-                    <h5 class="text-primary mb-0">Engraving & Ormantation Works</h5>
-                </div>
-            </a>
-            <a class="project-item" href="">
-                <img class="img-fluid" src="img/services/elec.jpg" alt="">
-                <div class="project-title">
-                    <h5 class="text-primary mb-0">Electromechanical Equipment Installation</h5>
-                </div>
-            </a>
-            <a class="project-item" href="">
-                <img class="img-fluid" src="img/services/paint (2).jpg" alt="">
-                <div class="project-title">
-                    <h5 class="text-primary mb-0">Painting Contracting</h5>
-                </div>
-            </a>
-            <a class="project-item" href="">
-                <img class="img-fluid" src="img/services/tiling.jpg" alt="">
-                <div class="project-title">
-                    <h5 class="text-primary mb-0">Floor & Wall Tiling</h5>
-                </div>
-            </a>
-        </div>
+<!-- Project Start -->
+<div class="container-fluid pt-5 my-5 px-0" style="background-color: rgba(24, 22, 22, 0.925);">
+    <div class="text-center mx-auto mt-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+        <p class="fw-medium text-uppercase text-primary mb-2">Our Projects</p>
+        <h1 class="display-5 text-white mb-5">See What We Have Completed Recently</h1>
     </div>
-    <!-- Project End -->
+    <div class="owl-carousel project-carousel wow fadeIn" data-wow-delay="0.1s">
+        <a class="project-item" href="">
+            <img class="img-fluid carousel-image" src="img/services/engraving1.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Plaster Works</h5>
+            </div>
+        </a>
+        <a class="project-item" href="">
+            <img class="img-fluid carousel-image" src="img/services/ac2.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">AC Installation & Maintenance</h5>
+            </div>
+        </a>
+        <a class="project-item" href="">
+            <img class="img-fluid carousel-image" src="img/services/engraving.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Engraving & Ormantation Works</h5>
+            </div>
+        </a>
+        <a class="project-item" href="">
+            <img class="img-fluid carousel-image" src="img/project/IMG-20240828-WA0053.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Fall Ceiling</h5>
+            </div>
+        </a>
+        <a class="project-item" href="">
+            <img class="img-fluid carousel-image" src="img/project/IMG-20240828-WA0020.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Painting Contracting</h5>
+            </div>
+        </a>
+        <a class="project-item" href="">
+            <img class="img-fluid carousel-image" src="img/project/wallpaper.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Lightining</h5>
+            </div>
+        </a>
+    </div>
+</div>
+<!-- Project End -->
+
 
 
     <!-- Team Start -->
@@ -483,7 +490,7 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
-                        <img class="img-fluid" src="./img/team/ceo.jpg"  alt="">
+                        <img class="img-fluid" src="./img/team/i.png"  alt="">
                         <div class="d-flex">
                             <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
                                 <i class="fa fa-2x fa-share text-white"></i>
@@ -506,14 +513,14 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item">
-                        <img class="img-fluid" src="img/team-2.jpg" alt="">
+                        <img class="img-fluid" src="img/team/a.png" alt="">
                         <div class="d-flex">
                             <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
                                 <i class="fa fa-2x fa-share text-white"></i>
                             </div>
                             <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
                                 style="height: 90px;">
-                                <h5>Adam Crew</h5>
+                                <h5>Ahsan Ibrahim</h5>
                                 <span class="text-primary">Project Manager</span>
                                 <div class="team-social">
                                     <a class="btn btn-square btn-dark rounded-circle mx-1" style="background-color: rgba(3, 3, 3, 0.692)" href=""><i
@@ -529,14 +536,14 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item">
-                        <img class="img-fluid" src="img/team-3.jpg" alt="">
+                        <img class="img-fluid" src="img/team/adam.jpg" alt="">
                         <div class="d-flex">
                             <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
                                 <i class="fa fa-2x fa-share text-white"></i>
                             </div>
                             <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
                                 style="height: 90px;">
-                                <h5>Peter Farel</h5>
+                                <h5>Adam Smith</h5>
                                 <span class="text-primary">Engineer</span>
                                 <div class="team-social">
                                     <a class="btn btn-square btn-dark rounded-circle mx-1" style="background-color: rgba(3, 3, 3, 0.692)" href=""><i
@@ -634,7 +641,7 @@ $(document).ready(function() {
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Our Office</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Dubai</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i> ffice: 102, Al Dana Building &nbsp; &nbsp; &nbsp;&nbsp; Frij Al Murar, Dubai</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+971 56 151 8964</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>ilyasanjum6674@gmail.com</p>
                     <div class="d-flex pt-3">
@@ -650,9 +657,9 @@ $(document).ready(function() {
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="about.php">About Us</a>
+                    <a class="btn btn-link" href="contact.php">Contact Us</a>
+                    <a class="btn btn-link" href="service.php">Our Services</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="">Support</a>
                 </div>

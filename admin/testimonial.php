@@ -38,7 +38,26 @@
             color: red;
             display: none;
         }
+
+
+        
+    /* Default style hides the image */
+.mobile-only {
+    display: none; /* Hide the image by default */
+}
+
+/* Media query to show the image only on mobile devices */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block; /* Show the image on screens 768px wide or less */
+        max-width: 100%; /* Ensure the image scales correctly */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+
     </style>
+
 
 <body>
     <div class="container-fluid position-relative d-flex p-0">
@@ -79,7 +98,6 @@
                         
                     </div>
                     <a href="./admin.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Admins</a>
-                    <a href="user.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Users</a>
                     <a href="quoto.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quotos</a>
                     <a href="service.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Services</a>
                     <a href="project.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Projects</a>
@@ -95,7 +113,6 @@
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
@@ -103,6 +120,13 @@
                 <form class="d-none d-md-flex ms-4">
                     <input class="form-control bg-dark border-0" type="search" placeholder="Search">
                 </form>
+
+
+                <a href="./index.php">
+                  <img src="./img/logo.png" alt="Logo" class="responsive-img mobile-only">
+                   </a>
+                
+
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                           <div class="nav-item dropdown">
@@ -141,28 +165,9 @@
 <label class="form-label" for="val-username">Description <span class="text-danger">*</span>
 </label>
 
-<?php
-// Assuming the form is submitted via POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $description = $_POST['description'];
-
-    // Split the description into words and count them
-    $words = preg_split('/\s+/', trim($description));
-    $wordCount = count($words);
-
-    if ($wordCount > 15) {
-        // Handle the case where there are more than 15 words
-        echo "Error: You can only enter up to 15 words.";
-    } else {
-        // Proceed with form processing (e.g., save to database)
-        // Process and sanitize the input
-        echo "Form submitted successfully.";
-    }
-}
-?>
 
 <textarea name="description" class="form-control" id="description" rows="5" placeholder="Enter here..."></textarea>
-<p class="word-limit-warning" id="warning">You can only enter up to 15 words.</p></div>
+</div>
 <div class="col-lg-6 mt-3 input-group-lg">
         <label class="form-label" for="val-username">Client Name <span class="text-danger">*</span>
         </label>
@@ -229,20 +234,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-
-    <script>
-        document.getElementById('description').addEventListener('input', function() {
-            let text = this.value;
-            let wordCount = text.trim().split(/\s+/).length;
-
-            if (wordCount > 15) {
-                this.value = text.trim().split(/\s+/).slice(0, 15).join(' ');
-                document.getElementById('warning').style.display = 'block';
-            } else {
-                document.getElementById('warning').style.display = 'none';
-            }
-        });
-    </script>
 
 
     <!-- Template Javascript -->

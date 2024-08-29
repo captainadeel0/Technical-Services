@@ -1,27 +1,49 @@
 <?php
-    session_start();
-    require_once "./db-con.php";
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-            
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+session_start();
+require_once './db-con.php'; // Ensure this file connects to your database
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get and sanitize form inputs
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $password = $_POST['password']; // Assume plain text password for this example
 
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['msg'] = '<div class="alert alert-danger">Invalid email format.</div>';
+        header('Location: signin.php');
+        exit();
+    }
 
-        $query=mysqli_query($con,"SELECT * FROM `admin` WHERE email='$email' AND password='$password'");
-        $res=mysqli_fetch_array($query);
-        $id=$res['id'];
+    // Prepare a statement to prevent SQL injection
+    $stmt = $con->prepare("SELECT id, password FROM admin WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
 
-        if (mysqli_num_rows($query)<1){
-            $_SESSION['msg']="Login Failed, Admin not found!";
-            header('Location:signin.php');
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $hashed_password);
+        $stmt->fetch();
+
+        // Verify password
+        if ($password === $hashed_password) {
+            // Password is correct
+            $_SESSION['id'] = $id;
+            $_SESSION['msg'] = '<div class="alert alert-success">Login successful!</div>';
+            header('Location: index.php'); // Redirect to the admin dashboard or another page
+            exit();
+        } else {
+            // Incorrect password
+            $_SESSION['msg'] = '<div class="alert alert-danger">Invalid password.</div>';
         }
+    } else {
+        // Email not found
+        $_SESSION['msg'] = '<div class="alert alert-danger">No account found with that email.</div>';
+    }
 
-        else{
-            $res=mysqli_fetch_array($query);
-            $_SESSION['id']=$res['id'];
-            header('Location:index.php');
-            
-            }
-        }
+    $stmt->close();
+
+    // Redirect back to the login page
+    header('Location: signin.php');
+    exit();
+}
 ?>
